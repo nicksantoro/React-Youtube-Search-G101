@@ -11,28 +11,34 @@ import React, { Component } from 'react';
  * Remove constructor and update handleChange **STRETCH GOAL**
  */
 class Search extends Component {
-  constructor(props) {
-    console.log(props.title);
-    super(props);
-    this.state = {
+  // constructor(props) {
+  //   console.log(props.title);
+  //   super(props);
+  //   this.state = {
+    // }
 
+    state = {
+      searchTerm: 'default'
     }
-  }
-
-    handleChange(e) {
-      this.setState({
-        searchTerm : e.target.value
-      })
+  
+    handleChange = event => {
+      this.setState({ searchTerm: event.target.value })
     }
+  
 
   render() {
-    const { title } = this.props;
-    const { searchTerm } = this.state;
+    // const {title, id, onSubmit} = this.
+    const { title } = this.props
+    const { searchTerm } = this.state
+    
+    console.log(this.state)
+
     return (
       <div>
         <h1>{title}</h1>
-        <input type="text" />
-        { searchTerm }
+
+        <input onChange={this.handleChange} type="text"/>
+        <p>{searchTerm}</p>
       </div>
     );
   }
